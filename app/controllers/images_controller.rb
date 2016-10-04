@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
-  http_basic_authenticate_with name: "baylor is the greatest", password: "baylor is so awesome", only: :create
+  http_basic_authenticate_with name: "image-uploader", password: "baylor-is-so-awesome", only: :create
+  skip_before_action :verify_authenticity_token, only: :create
 
   def index
     @images = current_project.images
@@ -10,7 +11,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    current_project.images.create!(image_params)
+    render json: current_project.images.create!(image_params)
   end
 
   private
