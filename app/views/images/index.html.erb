@@ -1,0 +1,9 @@
+<h1>Project Images</h1>
+
+<% @images.each do |image| %>
+  <article>
+    <%= link_to image.image.url do %>
+      <%= image_tag image.image.url(:thumb) %>
+    <% end %>
+  </article>
+<% end %>

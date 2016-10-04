@@ -1,0 +1,9 @@
+<h1>Latest Image</h1>
+
+<div>
+  <%= link_to @image.image.url do %>
+    <%= image_tag @image.image.url(:thumb) %>
+  <% end %>
+</div>
+
+<%= link_to "View Projects", projects_path %>
