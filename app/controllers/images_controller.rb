@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
   def index
-    @images = current_project.images
+    @images = current_project.images.order(created_at: :desc)
   end
 
   def latest
